@@ -1,0 +1,104 @@
+SELECT * FROM EMPLOYEES; /*sob gula mani pura table */
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, PHONE_NUMBER
+FROM EMPLOYEES /* je gula dibo arki*/
+SELECT last_name, hire_date, salary
+FROM employees;
+
+//math matical terms
+
+SELECT last_name, salary, salary + 300
+FROM employees;
+
+SELECT last_name, salary, 12*(salary+100)
+FROM employees; 
+
+//defime null varibale 
+/*
+A null is a value that is unavailable, unassigned,
+unknown, or inapplicable.
+• A null is not the same as a zero or a blank space.
+*/
+
+SELECT last_name, job_id, salary, commission_pct
+FROM employees;
+
+//Null Values  in Arithmetic Expressions
+
+SELECT last_name, 12*salary*commission_pct
+FROM employees;
+
+//Using Column Aliases
+
+/*
+
+The first example displays the names and the commission percentages of all the employees.
+Notice that the optional AS keyword has been used before the column alias name. The result
+of the query is the same whether the AS keyword is used or not. Also notice that the SQL
+statement has the column aliases, name and comm, in lowercase, whereas the result of the
+query displays the column headings in uppercase. As mentioned in a previous slide, column
+headings appear in uppercase by default.
+
+
+
+*/
+SELECT last_name AS name, commission_pct comm
+FROM employees;
+
+
+SELECT last_name "Name" , salary*12 "Annual Salary"
+FROM employees;
+
+/*
+Concatenation Operator
+A concatenation operator:
+• Links columns or character strings to other
+columns
+• Is represented by two vertical bars (||)
+• Creates a resultant column that is a character
+expression
+
+
+Null Values with the Concatenation Operator
+If you concatenate a null value with a character string, the result is a character string.
+LAST_NAME || NULL results in LAST_NAME.
+
+*/
+SELECT last_name||job_id AS "Employees"
+FROM employees;
+
+/*
+
+Literal Character Strings
+A literal is a character, a number, or a date that is included in the SELECT list and that is not
+a column name or a column alias. It is printed for each row returned. Literal strings of freeformat
+text can be included in the query result and are treated the same as a column in the
+SELECT list.
+Date and character literals must be enclosed by single quotation marks (' '); number literals
+need not be so enclosed.
+*/
+SELECT last_name ||' is a '||job_id
+AS "Employee Details"
+FROM employees;
+
+SELECT last_name ||': 1 Month salary = '||salary Monthly
+FROM employees;
+
+/*
+
+
+Alternative Quote (q) Operator
+• Specify your own quotation mark delimiter
+• Choose any delimiter
+• Increase readability and usability  */
+
+SELECT department_name ||
+q'[, it's assigned Manager Id: ]'
+|| manager_id
+AS "Department and Manager"
+FROM departments;
+// distitnt part
+SELECT DISTINCT department_id
+FROM employees;  // distint dile duplicate bad jabeee
+SELECT DISTINCT department_id, job_id
+FROM employees;
+
