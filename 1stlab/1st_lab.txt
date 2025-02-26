@@ -102,3 +102,13 @@ FROM employees;  // distint dile duplicate bad jabeee
 SELECT DISTINCT department_id, job_id
 FROM employees;
 
+
+
+
+extrss :
+
+select max(salary) "Height salary" from employees
+select count(distinct depertment_id) "Total number " from employees
+select * from employees where first_name like '_a%'
+select * from employees where first_name like '%n'
+select * from employees where first_name like 'S%'
