@@ -1,0 +1,146 @@
+//Limiting the Rows That Are Selected
+/*
+Restrict the rows that are returned by using the 
+WHEREclause:*/
+SELECT *|{[DISTINCT] column|expression[alias],...}
+ FROM   table
+ [WHERE condition(s)];
+
+  SELECT employee_id, last_name, job_id, department_id
+ FROM   employees
+ WHERE  department_id = 90 ;
+
+
+ // Character Strings and Dates
+
+ SELECT last_name, job_id, department_id
+ FROM   employees
+ WHERE  last_name = 'Whalen' ;
+ /*
+<>  not equal to 
+
+ BETWEEN
+ ...AND...  bewtwween 2 va,lues
+
+  IS NULL nul value
+
+
+  */
+
+   SELECT last_name, salary
+ FROM   employees
+ WHERE  salary <= 3000 ;
+
+  SELECT last_name, salary
+ FROM   employees
+ WHERE  salary BETWEEN 2500 AND 3500 ;
+SELECT last_name 
+FROM   employees 
+WHERE  last_name BETWEEN 'King' AND 'Smith';
+
+ SELECT employee_id, last_name, salary, manager_id
+ FROM   employees
+ WHERE  manager_id IN (100, 101, 201) ;
+
+
+SELECT employee_id, manager_id, department_id
+ FROM   employees
+ WHERE  last_name IN ('Hartstein', 'Vargas');
+
+ /*
+
+
+Using the LIKE Condition
+ • Use the LIKEcondition to perform wildcard 
+searches of valid search string values.
+ • Search conditions can contain either literal 
+characters or numbers:– %denotes zero or many characters.– _denotes one character*/
+
+ SELECT first_name
+ FROM 
+employees
+ WHERE
+ first_name LIKE 'S%' ;\
+
+ SELECT last_name, hire_date
+ FROM   
+employees
+ WHERE  hire_date LIKE '%95';
+
+ SELECT last_name, hire_date
+ FROM   
+employees
+ WHERE  hire_date LIKE '%MAY%';
+
+
+// You can combine pattern-matching characters:
+// • You can use the ESCAPEidentifier to search for the 
+//actual %and _symbols.
+ SELECT last_name
+ FROM   employees
+ WHERE  last_name LIKE '_o%' ;
+
+ /*
+  Combining Wildcard Characters
+ The %and _symbols can be used in any combination with literal characters.The example in 
+the slide displays the names of all employees whose last names have the letter oas the 
+second character.
+ ESCAPEOption */
+  SELECT employee_id, last_name, job_id
+ FROM   employees WHERE  job_id LIKE '%SA\_%' ESCAPE '\'; [perfect }
+ //AND
+  SELECT employee_id, last_name, job_id, salary
+ FROM   employees
+ WHERE  salary >=10000
+ AND    job_id LIKE '%MAN%' ;
+
+  SELECT employee_id, last_name, job_id, salary
+ FROM   employees
+ WHERE  salary >= 10000
+ OR     job_id LIKE '%MAN%' ; //OR
+
+  SELECT last_name, job_id
+ FROM   employees
+ WHERE  job_id 
+NOT IN ('IT_PROG', 'ST_CLERK', 'SA_REP') ;  //NOT
+//or then and 
+ SELECT last_name, job_id, salary
+ FROM   employees
+ WHERE  (job_id = 'SA_REP'
+ OR     job_id = 'AD_PRES')
+ AND    salary > 15000;
+//
+  SELECT last_name, job_id, salary
+ FROM   employees
+ WHERE  job_id = 'SA_REP'
+ OR     job_id = 'AD_PRES'
+ AND    salary > 15000;
+
+
+ SELECT   last_name, job_id, department_id, hire_date
+ FROM     employees
+ ORDER BY hire_date ;
+//order i mean sorting
+ SELECT   last_name, job_id, department_id, hire_date
+ FROM     employees
+ ORDER BY hire_date DESC 
+
+  Sorting by column alias:
+ • Sorting by multiple columns:
+ SELECT   last_name, job_id, department_id, hire_date
+ FROM     employees
+ //ORDER BY hire_date DESC ; 
+ SELECT employee_id, last_name, salary*12 annsal
+ FROM   employees
+ ORDER BY annsal ;
+ //Sorting by column alias
+ SELECT employee_id, last_name, salary*12 annsal
+ FROM   employees
+ ORDER BY annsal ;
+
+ Sorting by multiple columns:
+  SELECT last_name, department_id, salary
+ FROM   employees
+ ORDER BY department_id, salary DESC;
+
+ 
