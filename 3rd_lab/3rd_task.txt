@@ -1,0 +1,51 @@
+select CONCAT('First_name', 'Last_Name') from employees  //First_nameLast_Name
+ SELECT 'The job id for '||UPPER(last_name)||' is '
+ ||LOWER(job_id) AS "EMPLOYEE DETAILS"
+ FROM   employees;
+
+  SELECT employee_id, last_name, department_id
+ FROM   employees
+ WHERE  LOWER(last_name) ='higgins';
+
+  SELECT employee_id, UPPER(last_name), department_id
+ FROM   employees
+ WHERE  INITCAP(last_name) = 'Higgins';
+// Character-Manipulation  Functions
+
+ SELECT employee_id, CONCAT(first_name, last_name) NAME, 
+job_id, LENGTH (last_name), 
+INSTR(last_name, 'a') "Contains 'a'?"
+ FROM   employees
+ WHERE  SUBSTR(job_id, 4) = 'REP';
+
+  SELECT employee_id, CONCAT(first_name, last_name) NAME,
+ LENGTH (last_name), INSTR(last_name, 'a') "Contains 'a'?"
+ FROM   employees
+ WHERE  SUBSTR(last_name, -1, 1) = 'n';
+
+//Number 
+ SELECT ROUND(45.923,2), ROUND(45.923,0),
+ ROUND(45.923,-1)
+ FROM   DUAL;
+if 72.4 , -2 jobnno 100 hobe cuz 7>5 so 1 hobe 
+ // -1 hoile .925 bad ar pore 4 ta hoi jabe 5 cuz 4<4 so 50 hobe answer
+  SELECT TRUNC(45.923,2), TRUNC(45.923),
+ TRUNC(45.923,-1)
+ FROM   DUAL;  //45.92 45 40
+  SELECT last_name, salary, MOD(salary, 5000)
+ FROM   employees
+ WHERE  job_id = 'SA_REP';
+
+
+
+  SELECT last_name, hire_date
+ FROM   employees
+ WHERE  hire_date < ' '01-FEB-88';
+
+ //Arithmetic Operators
+ with Dates
+
+
+  SELECT last_name, (SYSDATE-hire_date)/7 AS WEEKS
+ FROM   employees
+ WHERE  department_id = 90;
